@@ -1,0 +1,296 @@
+:root {
+  --bg: #f5f5f5;
+  --text-primary: #3e3333;
+  --text-secondary: #6d6464;
+  --card-bg: #2a3125;
+  --text-inverted: #fcfcfc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 32px 48px;
+  min-height: 128px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.brand img {
+  width: 64px;
+  height: 64px;
+  object-fit: cover;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.brand-name {
+  font-family: "Source Serif 4", "Source Serif Pro", serif;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.brand-role {
+  margin-top: 4px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.nav {
+  display: flex;
+  gap: 80px;
+  font-size: 18px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.page-title {
+  font-family: "Source Serif 4", "Source Serif Pro", serif;
+  font-size: clamp(56px, 9vw, 106px);
+  font-weight: 300;
+  line-height: 1;
+  margin: 0;
+  text-align: center;
+}
+
+.work-main {
+  padding: 48px 80px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+}
+
+.case-card {
+  width: min(1280px, 100%);
+  border-radius: 16px;
+  background: var(--card-bg);
+  color: var(--text-inverted);
+  padding: 8px;
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 24px;
+  overflow: hidden;
+}
+
+.case-image {
+  width: 100%;
+  height: 495px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.case-content {
+  padding: 32px 40px 32px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.case-name {
+  font-family: "Source Serif 4", "Source Serif Pro", serif;
+  font-size: 56px;
+  font-weight: 300;
+  margin: 0 0 16px;
+}
+
+.case-description {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.42;
+}
+
+.case-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.case-meta .label {
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.case-meta .value {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.case-link {
+  color: var(--text-inverted);
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-main {
+  min-height: calc(100vh - 128px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 24px 96px;
+}
+
+.contact-panel {
+  max-width: 560px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+}
+
+.contact-description {
+  margin: 0;
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 110px 1fr;
+  gap: 8px 20px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.contact-grid .label {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.contact-grid .value {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.contact-grid a {
+  color: var(--text-secondary);
+}
+
+@media (max-width: 980px) {
+  .header {
+    padding: 20px 24px;
+    min-height: 96px;
+  }
+
+  .brand-name {
+    font-size: 24px;
+  }
+
+  .nav {
+    gap: 40px;
+    font-size: 18px;
+  }
+
+  .work-main {
+    padding: 32px 8px 72px;
+    gap: 48px;
+  }
+
+  .case-card {
+    width: min(390px, 100%);
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .case-image {
+    height: 320px;
+  }
+
+  .case-content {
+    padding: 0 8px 8px;
+  }
+
+  .case-name {
+    font-size: 48px;
+  }
+
+  .case-meta {
+    gap: 8px;
+  }
+
+  .contact-main {
+    min-height: auto;
+    padding: 48px 16px 80px;
+  }
+
+  .contact-panel {
+    gap: 32px;
+  }
+
+  .contact-grid {
+    max-width: 100%;
+    grid-template-columns: 90px 1fr;
+  }
+
+  .contact-grid .label,
+  .contact-grid .value {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    min-height: 165px;
+    padding: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .brand {
+    gap: 12px;
+  }
+
+  .brand img {
+    width: 56px;
+    height: 56px;
+  }
+
+  .brand-name {
+    font-size: 24px;
+  }
+
+  .brand-role {
+    font-size: 14px;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: center;
+    gap: 48px;
+    font-size: 18px;
+  }
+}
