@@ -1,0 +1,108 @@
+<!--
+  Template for a new case study page (duplicate folder + this file as index.html).
+
+  Steps:
+  1. Copy the folder: work/table-talk/ → work/<your-case-slug>/
+  2. Rename this file to index.html inside that folder.
+  3. Update <title>, meta tags row, hero title, lede, body copy, sidebar fields, section blocks, and image srcs.
+  4. Link to it from work.html (case card "View case" href).
+
+  URLs:
+  - Local:  http://localhost:3000/work/<your-case-slug>/
+  - Vercel: https://your-domain.vercel.app/work/<your-case-slug>/
+
+  Stylesheets (paths from work/<slug>/):
+  - ../../styles.css        — global header, tokens, base
+  - ../../case-detail.css   — shared case layout (responsive)
+-->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Case title — Signe Bennmarker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400&family=Source+Serif+4:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../styles.css" />
+    <link rel="stylesheet" href="../../case-detail.css" />
+  </head>
+  <body>
+    <div class="page case-detail">
+      <header class="header">
+        <div class="brand">
+          <img src="" alt="" />
+          <div>
+            <div class="brand-name">Signe Bennmarker</div>
+            <div class="brand-role">Interaction Engineer</div>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="#">About</a>
+          <a href="/work">Work</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </header>
+
+      <a class="case-detail__back" href="/work">← Back to work</a>
+
+      <section class="case-detail__hero">
+        <div class="case-detail__meta-row">
+          <span>Year</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span>Discipline</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span>Context</span>
+        </div>
+        <h1 class="case-detail__title">Case title</h1>
+        <p class="case-detail__lede">One-line summary for the case.</p>
+      </section>
+
+      <figure class="case-detail__media">
+        <div class="case-detail__media-inner">
+          <img src="" alt="" />
+        </div>
+      </figure>
+
+      <div class="case-detail__body">
+        <div class="case-detail__intro-grid">
+          <p class="case-detail__intro-text">Lead paragraph.</p>
+          <aside class="case-detail__sidebar" aria-label="Project details">
+            <div class="case-detail__meta-block">
+              <h2 class="case-detail__meta-label">Contributors</h2>
+              <p class="case-detail__meta-value">Names</p>
+            </div>
+            <div class="case-detail__meta-block">
+              <h2 class="case-detail__meta-label">Company</h2>
+              <p class="case-detail__meta-value">Company name</p>
+            </div>
+            <div class="case-detail__meta-block">
+              <h2 class="case-detail__meta-label">My contributions</h2>
+              <p class="case-detail__meta-value">List</p>
+            </div>
+            <div class="case-detail__meta-block">
+              <h2 class="case-detail__meta-label">Timeline</h2>
+              <p class="case-detail__meta-value">Range</p>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <div class="case-detail__sections">
+        <section class="case-detail__section">
+          <h2 class="case-detail__section-title">Section heading</h2>
+          <p class="case-detail__section-body">Body copy.</p>
+        </section>
+      </div>
+
+      <figure class="case-detail__full-bleed">
+        <div class="case-detail__media-inner">
+          <img src="" alt="" />
+        </div>
+      </figure>
+    </div>
+  </body>
+</html>
