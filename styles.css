@@ -22,6 +22,37 @@ body {
   min-height: 100vh;
 }
 
+.site-header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 80px 16px 0;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 16px 32px;
+  background: #e6e6e6;
+  border-radius: 40px;
+  font-size: 18px;
+  line-height: normal;
+}
+
+.site-nav a {
+  color: var(--text-primary);
+  text-decoration: none;
+}
+
+.site-nav a:hover {
+  text-decoration: underline;
+}
+
+.site-nav a[aria-current="page"] {
+  font-weight: 500;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -154,11 +185,11 @@ body {
 }
 
 .contact-main {
-  min-height: calc(100vh - 128px);
+  min-height: calc(100vh - 120px);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 24px 96px;
+  padding: 48px 80px 80px;
 }
 
 .contact-panel {
@@ -168,16 +199,16 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 56px;
+  text-align: center;
 }
 
-.contact-description {
-  margin: 0;
-  text-align: center;
-  font-size: 16px;
-  color: var(--text-inverted);
-  line-height: 1.45;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+.contact-main .case-name {
+  margin-bottom: 0;
+}
 
+.contact-main .case-description {
+  color: var(--text-primary);
+  max-width: 590px;
 }
 
 .contact-grid {
@@ -203,6 +234,18 @@ body {
 }
 
 @media (max-width: 980px) {
+  .site-header {
+    padding: 32px 0 0;
+  }
+
+  .site-nav {
+    width: calc(100% - 32px);
+    justify-content: space-between;
+    gap: 0;
+    background: #ebebeb;
+    border-radius: 80px;
+  }
+
   .header {
     padding: 20px 24px;
     min-height: 96px;
@@ -246,11 +289,15 @@ body {
 
   .contact-main {
     min-height: auto;
-    padding: 48px 16px 80px;
+    padding: 32px 8px 72px;
   }
 
   .contact-panel {
     gap: 32px;
+  }
+
+  .contact-main .case-name {
+    font-size: 48px;
   }
 
   .contact-grid {

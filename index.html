@@ -3,10 +3,58 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Signe Bennmarker | UX Portfolio</title>
-    <meta http-equiv="refresh" content="0; url=/work" />
+    <title>Signe Bennmarker — Interaction Engineer</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <script src="https://mcp.figma.com/mcp/html-to-design/capture.js" async></script>
   </head>
   <body>
-    <p>Redirecting to <a href="/work">Work</a>...</p>
+    <div class="page index-page">
+      <header class="site-header">
+        <nav class="site-nav" aria-label="Primary">
+          <a href="index.html" aria-current="page">About</a>
+          <a href="work.html">Work</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+
+      <main class="index-main">
+        <h1 class="index-title">
+          <span>S.</span>
+          <span>Bennmarker</span>
+        </h1>
+
+        <p class="index-bio">
+          Stockholm based designer focused on shaping digital services that balance user value, technical
+          feasibility, and business impact. Backed by an MSc in Engineering, I’m comfortable navigating complex
+          problem spaces and communicating design decisions across disciplines. I work closely with product,
+          engineering, and stakeholders to turn insight into actionable, scalable solutions.
+        </p>
+
+        <div class="index-gallery">
+          <figure class="index-gallery__item index-gallery__item--crop-left">
+            <img
+              src="https://www.figma.com/api/mcp/asset/43cf9614-6225-4050-8ad3-322f66d4ed79"
+              alt="Signe in ski gear on a snowy mountain"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="index-gallery__item">
+            <img
+              src="https://www.figma.com/api/mcp/asset/56c307d0-ad8a-4809-9b8d-84468ff37b6d"
+              alt="Hiking with friends in the mountains"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="index-gallery__item index-gallery__item--crop-right">
+            <img
+              src="https://www.figma.com/api/mcp/asset/9d85a197-074e-4f7e-be97-6f26c85e0984"
+              alt="Friends gathered outdoors on a lawn"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
