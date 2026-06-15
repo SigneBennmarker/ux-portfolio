@@ -1,6 +1,6 @@
 (function () {
   var STORAGE_KEY = "portfolioCaseHeroTransition";
-  var DURATION_MS = 560;
+  var DURATION_MS = 520;
   var EASING = "cubic-bezier(0.22, 1, 0.36, 1)";
 
   function prefersReducedMotion() {
@@ -134,16 +134,12 @@
 
     var s = data.start;
     overlay.style.position = "fixed";
-    overlay.style.top = s.top + "px";
-    overlay.style.left = s.left + "px";
-    overlay.style.width = s.width + "px";
-    overlay.style.height = s.height + "px";
     overlay.style.zIndex = "10000";
-    overlay.style.borderRadius = data.borderRadius || "8px";
     overlay.style.overflow = "hidden";
     overlay.style.boxSizing = "border-box";
     overlay.style.pointerEvents = "none";
-    overlay.style.willChange = "top, left, width, height, border-radius";
+    overlay.style.transformOrigin = "top left";
+    overlay.style.willChange = "transform, border-radius, opacity";
 
     document.body.appendChild(overlay);
 
@@ -158,9 +154,24 @@
       heroImg.classList.remove("case-detail__hero-image--pending");
     }
 
-    fallbackTimer = window.setTimeout(finish, DURATION_MS + 120);
+    fallbackTimer = window.setTimeout(finish, DURATION_MS + 160);
 
     var measureAttempts = 0;
+
+    function applyEndRect(end) {
+      overlay.style.top = end.top + "px";
+      overlay.style.left = end.left + "px";
+      overlay.style.width = end.width + "px";
+      overlay.style.height = end.height + "px";
+    }
+
+    function computeTransformFromStartToEnd(start, end) {
+      var scaleX = start.width / end.width;
+      var scaleY = start.height / end.height;
+      var translateX = start.left - end.left;
+      var translateY = start.top - end.top;
+      return "translate(" + translateX + "px, " + translateY + "px) scale(" + scaleX + ", " + scaleY + ")";
+    }
 
     function animateToHero() {
       measureAttempts += 1;
@@ -169,32 +180,36 @@
         requestAnimationFrame(animateToHero);
         return;
       }
-      overlay.style.transition =
-        "top " +
-        DURATION_MS +
-        "ms " +
-        EASING +
-        ", left " +
-        DURATION_MS +
-        "ms " +
-        EASING +
-        ", width " +
-        DURATION_MS +
-        "ms " +
-        EASING +
-        ", height " +
-        DURATION_MS +
-        "ms " +
-        EASING +
-        ", border-radius " +
-        DURATION_MS +
-        "ms " +
-        EASING;
-      overlay.style.top = end.top + "px";
-      overlay.style.left = end.left + "px";
-      overlay.style.width = end.width + "px";
-      overlay.style.height = end.height + "px";
+
+      // Place overlay at end rect, then transform it back to the start rect.
+      applyEndRect(end);
       overlay.style.borderRadius = "8px";
+      overlay.style.opacity = "1";
+
+      // Initial state (instant): overlay visually matches the card image rect.
+      overlay.style.transition = "none";
+      overlay.style.transform = computeTransformFromStartToEnd(s, end);
+      overlay.style.borderRadius = data.borderRadius || "8px";
+
+      // Next frame: animate transform back to identity (overlay becomes the hero).
+      requestAnimationFrame(function () {
+        overlay.style.transition =
+          "transform " +
+          DURATION_MS +
+          "ms " +
+          EASING +
+          ", border-radius " +
+          DURATION_MS +
+          "ms " +
+          EASING +
+          ", opacity " +
+          DURATION_MS +
+          "ms " +
+          EASING;
+        overlay.style.transform = "translate(0px, 0px) scale(1, 1)";
+        overlay.style.borderRadius = "8px";
+        overlay.style.opacity = "1";
+      });
     }
 
     overlay.addEventListener("transitionend", function (e) {
