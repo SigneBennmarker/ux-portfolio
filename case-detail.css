@@ -22,6 +22,8 @@
 }
 
 .case-detail__back {
+  padding-top: 200px;
+
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -39,7 +41,7 @@
 .case-detail__hero {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 48px 48px;
+  padding: 80px 48px 48px 48px;
 }
 
 .case-detail__meta-row {
@@ -223,7 +225,7 @@
   }
 
   .case-detail__hero {
-    padding: 0 24px 32px;
+    padding: 60px 24px 32px;
   }
 
   .case-detail__lede {
@@ -274,17 +276,17 @@
   }
 
   .case-detail__hero {
-    padding: 0 16px 24px;
+    padding: 32px 16px 16px;
   }
 
   .case-detail__title {
-    text-align: left;
+    text-align: center;
     margin-left: 0;
     margin-right: 0;
   }
 
   .case-detail__lede {
-    text-align: left;
+    text-align: center;
     margin-left: 0;
     margin-right: 0;
     max-width: none;
@@ -293,6 +295,9 @@
 
   .case-detail__meta-row {
     justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
+    
   }
 
   .case-detail__media {
